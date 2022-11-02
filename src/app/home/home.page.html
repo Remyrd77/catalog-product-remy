@@ -9,7 +9,6 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list class="ion-padding">
     <ion-searchbar [debounce]="100" show-clear-button="focus" placeholder="Search Products" (ionChange)="handleChange($event)"></ion-searchbar>
@@ -23,14 +22,23 @@
     <ion-item *ngFor="let product of products" (click)="showProductDetails(product.id)">
       <ion-card>
         <ion-card-content>
-          <img alt="{{product.name}}" src="{{product.image}}" />
-          <ion-row>
-            <ion-col>
-              <ion-label>
-                {{product.name}}
-              </ion-label>
-            </ion-col>
-          </ion-row>
+          <ion-grid>
+            <ion-row>
+              <img alt="{{product.name}}" src="{{product.image}}" />
+            </ion-row>
+            <ion-row>
+              <ion-accordion-group>
+                <ion-accordion value="first">
+                  <ion-item slot="header">
+                    <ion-label>Description</ion-label>
+                  </ion-item>
+                  <div class="ion-padding" slot="content">
+                    Name: <strong>{{product.name}}</strong>
+                  </div>
+                </ion-accordion>
+              </ion-accordion-group>
+            </ion-row>
+          </ion-grid>
         </ion-card-content>
       </ion-card>
     </ion-item>
