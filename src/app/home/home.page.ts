@@ -17,12 +17,12 @@ export class HomePage {
     {
       'name': 'Buenos Aires',
       'id': 2,
-      'image': '../../assets/images/2.png',
+      'image': '../../assets/images/3.png',
     },
     {
       'name': 'Cairo',
       'id': 3,
-      'image': '../../assets/images/2.png',
+      'image': '../../assets/images/4.png',
     },
     {
       'name': 'Geneva',
@@ -40,7 +40,7 @@ export class HomePage {
     if (query === '') {
       this.results = [];
     } else {
-      this.results = this.data.filter(d => d.toLowerCase().indexOf(query) > -1);
+      this.results = this.products.filter(d => d.name.toLowerCase().indexOf(query) > -1);
     }
   }
 
