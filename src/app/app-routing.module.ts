@@ -1,68 +1,62 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { DummyComponent } from './components/dummy/dummy.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  { path: 'auth', component: DummyComponent, loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
-  {
-    path: 'tab4',
-    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+    redirectTo: 'welcome',
+    pathMatch: 'full'
   },
   {
-    path: 'my-profile',
-    loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule)
+    path: 'folder/:id',
+    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'signin',
-    loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
+    path: 'welcome',
+    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   },
   {
-    path: 'product',
-    loadChildren: () => import('./pages/product/product.module').then( m => m.ProductPageModule)
-  },
-  {
-    path: 'search',
-    loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
-  },
-  {
-    path: 'order',
-    loadChildren: () => import('./pages/order/order.module').then( m => m.OrderPageModule)
-  },
-  {
-    path: 'basket',
-    loadChildren: () => import('./pages/basket/basket.module').then( m => m.BasketPageModule)
-  },
-  {
-    path: 'category',
-    loadChildren: () => import('./tab2/category/category.module').then( m => m.CategoryPageModule)
-  },  {
-    path: 'payment',
-    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
-  },
-
-
-
- 
- 
- /* {
-    path: 'signin',
-    loadChildren: () => import('./pages/auth/signin/signin.module').then( m => m.SigninPageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'signup',
-    loadChildren: () => import('./pages/auth/signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'forgot-password',
-    loadChildren: () => import('./pages/auth/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
-  }, */
-  
-
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'item-details',
+    loadChildren: () => import('./item-details/item-details.module').then( m => m.ItemDetailsPageModule)
+  },
+  {
+    path: 'my-cart',
+    loadChildren: () => import('./my-cart/my-cart.module').then( m => m.MyCartPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'my-orders',
+    loadChildren: () => import('./my-orders/my-orders.module').then( m => m.MyOrdersPageModule)
+  },
+  {
+    path: 'favorite',
+    loadChildren: () => import('./favorite/favorite.module').then( m => m.FavoritePageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'confirm',
+    loadChildren: () => import('./confirm/confirm.module').then( m => m.ConfirmPageModule)
+  }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
