@@ -1,32 +1,44 @@
 ion-menu {
   --width: 100%;
+  --ion-background-color: #00170cc9;
+}
+
+.close-btn {
+  width: 100%;
+  display: inline-flex;
+
+  ion-button {
+    position: absolute;
+    right: 0;
+    font-size: 24px;
+    --ripple-color: transparent;
+  }
 }
 
 .main-list {
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  background-color: var(--ion-background-color);
 
   ion-list {
     width: 100%;
+    background: transparent;
 
     ion-item {
       font-size: 18px;
       font-weight: 100;
+      --background: transparent;
+      padding: 0;
+      margin: 0;
+      ion-label {
+        text-align: left;
+      }
     }
 
     .selected {
       border-left: 5px solid var(--ion-color-primary);
       color: var(--ion-color-primary);
     }
-  }
-
-  ion-button {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    font-size: 24px;
-    --ripple-color: transparent;
   }
 }
